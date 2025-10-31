@@ -3,11 +3,11 @@
 #include <chrono>
 #include <vector>
 
-__global__ void vectorMul(float *A, float *B, float *C, int N) {
+__global__ void vectorAbsDiff(float *A, float *B, float *C, int N) {
     int idx = blockIdx.x * blockDim.x + threadIdx.x;
 
     if (idx < N) {
-       C[idx] = A[idx] - B[idx];
+        C[idx] = sqrtf((A[idx] - B[idx]) * (A[idx] - B[idx]));
     }
 }
 
