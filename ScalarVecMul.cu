@@ -2,6 +2,7 @@
 #include <iostream>
 #include <chrono>
 #include <vector>
+#include <cublas_v2.h>
 
 __global__ void scalarMul(float P, float *Arr, int N) {
     int idx = blockIdx.x * blockDim.x + threadIdx.x;
